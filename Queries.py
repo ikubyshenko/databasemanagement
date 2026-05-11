@@ -29,7 +29,7 @@ def add_event():
     print("Event added.")
 
 def show_events():
-    cursor.execute('SELECT * FROM "Events"')
+    cursor.execute('SELECT * FROM Events')
     rows = cursor.fetchall()
 
     for r in rows:

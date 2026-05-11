@@ -17,17 +17,11 @@ def menu():
         elif choice == "2":
             add_event()
 
-        elif choice == "test":
-            show_events()
-
         elif choice == "3":
             buy_ticket()
-
+        
         elif choice == "4":
             add_review()
-
-        elif choice == "test2":
-            show_tickets()
     
         elif choice == "5":
             break
