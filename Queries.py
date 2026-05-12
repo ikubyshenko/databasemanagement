@@ -63,6 +63,94 @@ def show_tickets():
     for r in rows:
         print(r)
 
+def show_customers():
+    cursor.execute("""
+        SELECT * FROM Customers
+    """)
+
+    rows = cursor.fetchall()
+
+    print("\n=== CUSTOMERS ===")
+
+    for r in rows:
+        print(r)
+
+def show_reviews():
+    cursor.execute("""
+        SELECT * FROM Reviews
+    """)
+
+    rows = cursor.fetchall()
+
+    print("\n=== REVIEWS ===")
+
+    for r in rows:
+        print(r)
+
+def show_reviews():
+    cursor.execute("""
+        SELECT * FROM Reviews
+    """)
+
+    rows = cursor.fetchall()
+
+    print("\n=== REVIEWS ===")
+
+    for r in rows:
+        print(r)
+
+def update_event_status():
+    event_id = input("Event ID: ")
+    new_status = input("New Status: ")
+
+    cursor.execute("""
+        UPDATE Events
+        SET Status = %s
+        WHERE EventID = %s
+    """, (new_status, event_id))
+
+    conn.commit()
+
+    print("Event updated successfully.")
+
+def update_customer_phone():
+    customer_id = input("Customer ID: ")
+    new_phone = input("New phone: ")
+
+    cursor.execute("""
+        UPDATE Customers
+        SET Phone = %s
+        WHERE CustomerID = %s
+    """, (new_phone, customer_id))
+
+    conn.commit()
+
+    print("Customer updated successfully.")
+
+def delete_review():
+    review_id = input("Review ID to delete: ")
+
+    cursor.execute("""
+        DELETE FROM Reviews
+        WHERE ReviewID = %s
+    """, (review_id,))
+
+    conn.commit()
+
+    print("Review deleted successfully.")
+
+def delete_ticket():
+    ticket_id = input("Ticket ID to delete: ")
+
+    cursor.execute("""
+        DELETE FROM Tickets
+        WHERE TicketID = %s
+    """, (ticket_id,))
+
+    conn.commit()
+
+    print("Ticket deleted successfully.")
+
 def add_review():
     customer = input("Customer ID: ")
     event = input("Event ID: ")
