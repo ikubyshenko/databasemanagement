@@ -1,5 +1,6 @@
 from DBConnectivity import conn, cursor
 def add_customer():
+    
     name = input("Name: ")
     email = input("Email: ")
     phone = input("Phone: ")
@@ -13,6 +14,7 @@ def add_customer():
     print("Customer added.")
     
 def add_event():
+    
     name = input("Event name: ")
     date = input("Date (YYYY-MM-DD): ")
     time = input("Time (HH:MM): ")
@@ -29,13 +31,13 @@ def add_event():
     print("Event added.")
 
 def show_events():
+    
     cursor.execute('SELECT * FROM Events')
-    rows = cursor.fetchall()
-
-    for r in rows:
+    for r in cursor.fetchall():
         print(r)
 
 def buy_ticket():
+    
     event_id = input("Event ID: ")
     customer_id = input("Customer ID: ")
     ticket_type = input("Ticket Type: ")
@@ -51,6 +53,7 @@ def buy_ticket():
     print("Ticket purchased.")
 
 def show_tickets():
+    
     cursor.execute("""
         SELECT t.TicketID, c.FullName, e.EventName, t.Price
         FROM Tickets t
@@ -58,48 +61,43 @@ def show_tickets():
         JOIN Events e ON t.EventID = e.EventID
     """)
 
-    rows = cursor.fetchall()
-
-    for r in rows:
+    for r in cursor.fetchall():
         print(r)
 
 def show_customers():
+    
     cursor.execute("""
         SELECT * FROM Customers
     """)
-
-    rows = cursor.fetchall()
-
+    
     print("\n=== CUSTOMERS ===")
-
-    for r in rows:
+    
+    for r in cursor.fetchall():
         print(r)
 
 def show_reviews():
+    
     cursor.execute("""
         SELECT * FROM Reviews
     """)
-
-    rows = cursor.fetchall()
-
+    
     print("\n=== REVIEWS ===")
-
-    for r in rows:
+    
+    for r in cursor.fetchall():
         print(r)
 
 def show_reviews():
+    
     cursor.execute("""
         SELECT * FROM Reviews
     """)
-
-    rows = cursor.fetchall()
-
+    
     print("\n=== REVIEWS ===")
-
-    for r in rows:
+    for r in cursor.fetchall():
         print(r)
 
 def update_event_status():
+    
     event_id = input("Event ID: ")
     new_status = input("New Status: ")
 
@@ -114,6 +112,7 @@ def update_event_status():
     print("Event updated successfully.")
 
 def update_customer_phone():
+    
     customer_id = input("Customer ID: ")
     new_phone = input("New phone: ")
 
@@ -128,6 +127,7 @@ def update_customer_phone():
     print("Customer updated successfully.")
 
 def delete_review():
+    
     review_id = input("Review ID to delete: ")
 
     cursor.execute("""
@@ -140,6 +140,7 @@ def delete_review():
     print("Review deleted successfully.")
 
 def delete_ticket():
+    
     ticket_id = input("Ticket ID to delete: ")
 
     cursor.execute("""
@@ -152,6 +153,7 @@ def delete_ticket():
     print("Ticket deleted successfully.")
 
 def add_review():
+    
     customer = input("Customer ID: ")
     event = input("Event ID: ")
     rating = input("Rating (1-5): ")
